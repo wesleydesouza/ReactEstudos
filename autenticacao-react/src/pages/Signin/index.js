@@ -1,16 +1,29 @@
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
+import Lottie from "react-lottie";
 
-import {Container, Form, Input, Button} from "./styles";
+import {Image, Container, Form, Input, Button, Animation} from "./styles";
 import api from "../../services/api"
 import SigninValidation from "../../utils/validation/SigninValidation";
 import Message from "../../components/Message";
 
+import * as animationData from '../../assets/animations/88796-loading-animation-gradient-line-1.json';
+import Logo from "../../assets/images/logo.png";
 function Signin(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+    const defaultOptions = {
+        loop: true,
+        autoplay: true, 
+        animationData: animationData,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice'
+        }
+      };
 
     async function HandleSubmit(){
+        setLoading(true);
        const data = {email, password};
 
        let validation = await SigninValidation(data);
@@ -19,11 +32,20 @@ function Signin(){
 
             await api.post("/signin", data).then(response => {
                  Message(response);
+                 setTimeout(() => {
+                    setLoading(false)
+                }, 2000);
              }).catch(error => {
-                 Message(error.response.statusText = "Usuário não encontrado!");
+                 Message(error.response.statusText = "Usuário não encontrado!", "warn");
+                 setTimeout(() => {
+                    setLoading(false)
+                }, 2000);
              })
           }else {
-            Message("Preencha um email válido e uma senha de no mínimo 6 caracteres!", "error")
+            Message("Preencha um email válido e uma senha de no mínimo 6 caracteres!", "error");
+            setTimeout(() => {
+                setLoading(false)
+            }, 2000);
         }
         }
 
@@ -32,9 +54,26 @@ function Signin(){
         <Container>
             <Form>
                 <ToastContainer/>
+                <Image src={Logo} alt="logo web"/>
                 <Input type="email" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)}  required/>
                 <Input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
-                <Button onClick={HandleSubmit}>Entrar</Button>
+                <Button 
+                    onClick={HandleSubmit}
+                    >
+                        {loading ? 
+                        <Animation>
+
+                            <Lottie options={defaultOptions}
+                                height={40}
+                                width={40}
+                            />
+                        </Animation>
+                    :
+                        "Entrar"
+                    }
+                </Button>
+
+                
             </Form>
 
 

@@ -35,6 +35,7 @@ export const Button = styled.button`
     border-radius: var(--border-radius);
     font-size: 18px;
     width: 100%;
+    height:65px;
     padding: 15px 20px;
     font-weight: 700;
     background: var(--color-gradient);
@@ -45,4 +46,16 @@ export const Button = styled.button`
     &:hover {
         background: var(--color-gradient-hover);
     }
+`;
+
+export const Animation = styled.div`
+    width: 37px;
+    margin: auto;
+`;
+
+export const Image = styled.img`
+    width: 200px;
+    margin: auto;
+    margin-bottom: 20px;
+    cursor: pointer;
 `;
