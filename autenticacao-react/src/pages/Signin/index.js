@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import Lottie from "react-lottie";
 
-import {Image, Container, Form, Input, Button, Animation} from "./styles";
+import {Image, Container, Form, Input, Button, Animation, Signup, Span, ForgotPassword} from "./styles";
 import api from "../../services/api"
 import SigninValidation from "../../utils/validation/SigninValidation";
 import Message from "../../components/Message";
@@ -30,10 +30,14 @@ function Signin(){
 
         if(validation){
 
-            await api.post("/signin", data).then(response => {
+            await api.post("/signin", data)
+                .then(response => {
+                    localStorage.setItem("over_name", response.data.user.name);
+                    localStorage.setItem("over_token", response.data.token);
                  Message(response);
                  setTimeout(() => {
-                    setLoading(false)
+                    setLoading(false);
+                    handleAuthenticated();
                 }, 2000);
              }).catch(error => {
                  Message(error.response.statusText = "Usuário não encontrado!", "warn");
@@ -49,7 +53,17 @@ function Signin(){
         }
         }
 
-    /*console.log(email, password)*/
+        async function handleAuthenticated(){
+            let token = await localStorage.getItem("over_token");
+
+            if(token){
+                window.location = "/";
+            }
+        }
+        useEffect(() => {
+            handleAuthenticated()
+        },[])
+    
     return(
         <Container>
             <Form>
@@ -57,6 +71,9 @@ function Signin(){
                 <Image src={Logo} alt="logo web"/>
                 <Input type="email" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)}  required/>
                 <Input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
+                <ForgotPassword href="/forgot-password">
+                    Esqueceu sua senha?
+                </ForgotPassword>
                 <Button 
                     onClick={HandleSubmit}
                     >
@@ -72,7 +89,7 @@ function Signin(){
                         "Entrar"
                     }
                 </Button>
-
+                    <Signup href="/signup">Ainda não tem cadastro? <Span>Cadastre-se!</Span></Signup>
                 
             </Form>
 

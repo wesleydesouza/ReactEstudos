@@ -59,3 +59,28 @@ export const Image = styled.img`
     margin-bottom: 20px;
     cursor: pointer;
 `;
+
+export const Signup = styled.a`
+    text-align: center;
+    max-width: 200px;
+    color: var(--color-primary);
+    margin: 20px auto;
+    text-decoration: none;
+    line-height: 25px;
+`;
+
+export const Span = styled.span`
+    
+    color: var(--color-white);
+    text-decoration: underline;
+`;
+
+export const ForgotPassword = styled.a`
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    color: var(--color-primary);
+    text-decoration: none;
+    line-height: 25px;
+    margin-bottom: 25px;
+`;
