@@ -8,6 +8,7 @@ import SignupValidation from "../../utils/validation/SignupValidation ";
 import Message from "../../components/Message";
 
 import * as animationData from '../../assets/animations/88796-loading-animation-gradient-line-1.json';
+import successAnimation from "../../assets/animations/67000-checkmark.json";
 import Logo from "../../assets/images/logo.png";
 function Cadastro(){
     const [name, setName] = useState("");
@@ -16,7 +17,17 @@ function Cadastro(){
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
-    const defaultOptions = {
+
+    const optionsLoading = {
+        loop: true,
+        autoplay: true, 
+        animationData: animationData,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice'
+        }
+      };
+
+      const optionsSuccess = {
         loop: true,
         autoplay: true, 
         animationData: animationData,
@@ -27,51 +38,35 @@ function Cadastro(){
 
     async function HandleSubmit(){
         setLoading(true);
-       const data = { name, email, phone, password};
+       const data = { email, name, password, phone};
 
        try {
 
-           let validation = await SignupValidation(data);
-           await api.post("/signup", data)
-                .then(response => {
-                 Message(response.data.message);
-                 setTimeout(() => {
-                    setLoading(false);
-                    setSuccess(true);
-                }, 2000);
-             }).catch(error => {
-                 Message(error.response.statusText = "Usuário não encontrado!", "warn");
-                 setTimeout(() => {
-                    setLoading(false)
-                }, 2000);
-             })
+           await SignupValidation(data);
+           handleRequest(data);
            
        } catch(err){
         setLoading(false);
         Message(err.errors[0]);
        }
         
-       /*
-        if(validation){
-            await api.post("/signup", data)
-                .then(response => {
-                 Message(response.data.message);
-                 setTimeout(() => {
-                    setLoading(false);
-                    setSuccess(true);
-                }, 2000);
-             }).catch(error => {
-                 Message(error.response.statusText = "Usuário não encontrado!", "warn");
-                 setTimeout(() => {
-                    setLoading(false)
-                }, 2000);
-             })
-          }else {
-            Message("Preencha um email válido e uma senha de no mínimo 6 caracteres!", "error");
-            setTimeout(() => {
-                setLoading(false)
-            }, 2000);
-        }*/
+       async function handleRequest(data) {
+           await api.post("/user", data)
+           .then(response => {
+               Message(response.data.message);
+               setTimeout(() => {
+                   setLoading(false);
+            setSuccess(true);
+        }, 2000);
+     }).catch(error => {
+       
+         Message(error.response.statusText = "Usuário não encontrado!", "warn");
+         setTimeout(() => {
+            setLoading(false)
+        }, 2000);
+     })
+       }
+       
         }
 
         async function handleAuthenticated(){
@@ -88,7 +83,11 @@ function Cadastro(){
     return(
         <Container>
             {
-                success ? <h1 >Deu certo!</h1>
+                success ? 
+                <>
+                    <h1>Deu certo!</h1>
+                    <Lottie options={optionsSuccess}/>
+                </>
 
                 :
 
@@ -110,10 +109,7 @@ function Cadastro(){
                             {loading ? 
                             <Animation>
     
-                                <Lottie options={defaultOptions}
-                                    height={40}
-                                    width={40}
-                                />
+                                <Lottie options={optionsLoading}/>
                             </Animation>
                         :
                             "Entrar"
