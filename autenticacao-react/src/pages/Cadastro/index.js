@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import Lottie from "react-lottie";
 
-import {Image, Container, Form, Input, Button, Animation, Signup, Span, ForgotPassword, Title} from "./styles";
+import {Image, Container, Form, Input, Button, Animation, Signin, Span, Title, AnimationContainer, TittleAnimation, RedirectLogin} from "./styles";
 import api from "../../services/api"
 import SignupValidation from "../../utils/validation/SignupValidation ";
 import Message from "../../components/Message";
@@ -10,6 +10,7 @@ import Message from "../../components/Message";
 import * as animationData from '../../assets/animations/88796-loading-animation-gradient-line-1.json';
 import successAnimation from "../../assets/animations/67000-checkmark.json";
 import Logo from "../../assets/images/logo.png";
+
 function Cadastro(){
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -30,7 +31,7 @@ function Cadastro(){
       const optionsSuccess = {
         loop: true,
         autoplay: true, 
-        animationData: animationData,
+        animationData: successAnimation,
         rendererSettings: {
           preserveAspectRatio: 'xMidYMid slice'
         }
@@ -84,10 +85,11 @@ function Cadastro(){
         <Container>
             {
                 success ? 
-                <>
-                    <h1>Deu certo!</h1>
+                <AnimationContainer>
+                    <TittleAnimation>Deu certo!</TittleAnimation>
+                    <RedirectLogin href="/signin">Ir para o Login</RedirectLogin>
                     <Lottie options={optionsSuccess}/>
-                </>
+                </AnimationContainer>
 
                 :
 
@@ -100,9 +102,7 @@ function Cadastro(){
                     <Input type="email" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)}  required/>
                     <Input type="number" placeholder="Celular" onChange={(e) => setPhone(e.target.value)}  required/>
                     <Input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
-                    <ForgotPassword href="/forgot-password">
-                        Esqueceu sua senha?
-                    </ForgotPassword>
+                    
                     <Button 
                         onClick={HandleSubmit}
                         >
@@ -115,7 +115,7 @@ function Cadastro(){
                             "Entrar"
                         }
                     </Button>
-                        <Signup href="/signup">Ainda não tem cadastro? <Span>Cadastre-se!</Span></Signup>
+                        <Signin href="/signin">Já tem cadastro? <Span>Clique aqui!</Span></Signin>
                     
                 </Form>
 

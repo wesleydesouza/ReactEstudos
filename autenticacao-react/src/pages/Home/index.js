@@ -1,10 +1,10 @@
-import { Container, Title } from "./styles";
+import Header from "../../components/Header";
+import { Container } from "./styles";
 
 function Home(){
     return(
         <Container>
-
-            <Title>Página Home</Title>
+            <Header/>
         </Container>
     )
 }

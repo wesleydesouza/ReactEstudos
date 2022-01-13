@@ -59,7 +59,7 @@ export const Image = styled.img`
     cursor: pointer;
 `;
 
-export const Signup = styled.a`
+export const Signin = styled.a`
     text-align: center;
     max-width: 200px;
     color: var(--color-primary);
@@ -74,15 +74,6 @@ export const Span = styled.span`
     text-decoration: underline;
 `;
 
-export const ForgotPassword = styled.a`
-    display: flex;
-    justify-content: flex-end;
-    text-align: center;
-    color: var(--color-primary);
-    text-decoration: none;
-    line-height: 25px;
-    margin-bottom: 25px;
-`;
 
 export const Title = styled.h1`
     color: var(--color-white);
@@ -90,4 +81,22 @@ export const Title = styled.h1`
     font-size: 24px;
     font-weight: 400;
     
+`;
+
+export const AnimationContainer = styled.div`
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const TittleAnimation = styled.h1`
+    color: var(--color-white);
+    
+`;
+
+export const RedirectLogin = styled.a`
+    color: var(--color-primary);
+    margin: 30px 0;
 `;
