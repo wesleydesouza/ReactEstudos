@@ -29,7 +29,7 @@ function Header(){
             <ContainerLinks>
                 <LinkMenu href="/course">Novo Curso</LinkMenu>
                 <LinkMenu href="/course">Novo Curso</LinkMenu>
-                <LinkMenu onClick={handleLogout} href="/#">Novo Curso</LinkMenu>
+                <LinkMenu onClick={handleLogout} href="/#">Sair</LinkMenu>
             </ContainerLinks>
         </Container>
     )
