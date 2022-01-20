@@ -28,14 +28,17 @@ class Sobre extends Component{
     };
 };
 
-function ClassComponent(){
-    return(
-        <div>
-            <h1>Conheça nossa equipe:</h1>
-            <Equipe nome="Wesley" cargo="Programador" idade="24"/>
-            <Equipe nome="Taiana" cargo="Dentista" idade="33"/>
-        </div>
-    );
+class ClassComponent extends Component{
+   
+    render(){
+        return(
+            <div>
+                <h1>Conheça nossa equipe:</h1>
+                <Equipe nome="Wesley" cargo="Programador" idade="24"/>
+                <Equipe nome="Taiana" cargo="Dentista" idade="33"/>
+            </div>
+        );
+    };
 };
 
 export default ClassComponent;
