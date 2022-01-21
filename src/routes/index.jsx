@@ -5,6 +5,7 @@ import Props from "../pages/Props";
 import ClassComponent from "../pages/ClassComponent";
 import State from "../pages/State";
 import CiclodeVidaComponente from "../pages/CiclodeVidaComponente";
+import RenderizacaoCondicional from  "../pages/RenderizacaoCondicional";
 
 function routes() {
   return (
@@ -15,9 +16,10 @@ function routes() {
         <Route path="classcomponent" element={<ClassComponent/>}/>
         <Route path="state" element={<State/>}/>
         <Route path="ciclodevidacomponente" element={<CiclodeVidaComponente/>}/>
+        <Route path="renderizacaoCondicional" element={<RenderizacaoCondicional/>}/>
       </Routes>
     </BrowserRouter>
-    
+  
   );
 }
 
