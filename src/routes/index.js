@@ -11,12 +11,12 @@ function routes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={<Home/>}/>
-        <Route path="props" element={<Props/>}/>
-        <Route path="classcomponent" element={<ClassComponent/>}/>
-        <Route path="state" element={<State/>}/>
-        <Route path="ciclodevidacomponente" element={<CiclodeVidaComponente/>}/>
-        <Route path="renderizacaoCondicional" element={<RenderizacaoCondicional/>}/>
+        <Route path="/reactestudos" element={<Home/>}/>
+        <Route path="/reactestudos/props" element={<Props/>}/>
+        <Route path="/reactestudos/classcomponent" element={<ClassComponent/>}/>
+        <Route path="/reactestudos/state" element={<State/>}/>
+        <Route path="/reactestudos/ciclodevidacomponente" element={<CiclodeVidaComponente/>}/>
+        <Route path="/reactestudos/renderizacaoCondicional" element={<RenderizacaoCondicional/>}/>
       </Routes>
     </BrowserRouter>
   
