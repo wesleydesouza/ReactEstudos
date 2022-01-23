@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/reactestudos/static/js/main.70a4c2fc.js",
+    "main.js": "/reactestudos/static/js/main.4efc31a5.js",
     "index.html": "/reactestudos/index.html",
-    "main.70a4c2fc.js.map": "/reactestudos/static/js/main.70a4c2fc.js.map"
+    "main.4efc31a5.js.map": "/reactestudos/static/js/main.4efc31a5.js.map"
   },
   "entrypoints": [
-    "static/js/main.70a4c2fc.js"
+    "static/js/main.4efc31a5.js"
   ]
 }
