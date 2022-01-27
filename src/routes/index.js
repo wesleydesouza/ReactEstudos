@@ -8,6 +8,7 @@ import CiclodeVidaComponente from "../pages/CiclodeVidaComponente";
 import RenderizacaoCondicional from  "../pages/RenderizacaoCondicional";
 import Listas from "../pages/Listas";
 import Formularios from "../pages/Formulario";
+import UseState from "../pages/Hooks";
 
 function routes() {
   return (
@@ -21,6 +22,7 @@ function routes() {
         <Route path="/reactestudos/renderizacaoCondicional" element={<RenderizacaoCondicional/>}/>
         <Route path="/reactestudos/listas" element={<Listas/>}/>
         <Route path="/reactestudos/formularios" element={<Formularios/>}/>
+        <Route path="/reactestudos/hooks" element={<UseState/>}/>
 
       </Routes>
     </BrowserRouter>
