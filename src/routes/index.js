@@ -11,21 +11,25 @@ import Listas from "../pages/Listas";
 import Formularios from "../pages/Formulario";
 import UseState from "../pages/Hooks";
 import RequisicoesHttp from "../pages/requisicoesHttp";
+import Produtos from "../pages/Produtos";
+import Erro from "../pages/Erro"
 
 function routes() {
   return (
     <BrowserRouter>
       <Routes>
         <Route exact path="/reactestudos" element={<Home/>}/>
-        <Route path="/reactestudos/props" element={<Props/>}/>
-        <Route path="/reactestudos/classcomponent" element={<ClassComponent/>}/>
-        <Route path="/reactestudos/state" element={<State/>}/>
-        <Route path="/reactestudos/ciclodevidacomponente" element={<CiclodeVidaComponente/>}/>
-        <Route path="/reactestudos/renderizacaoCondicional" element={<RenderizacaoCondicional/>}/>
-        <Route path="/reactestudos/listas" element={<Listas/>}/>
-        <Route path="/reactestudos/formularios" element={<Formularios/>}/>
-        <Route path="/reactestudos/hooks" element={<UseState/>}/>
-        <Route path="/reactestudos/requisicoesHttp" element={<RequisicoesHttp/>}/>
+        <Route exact path="/reactestudos/props" element={<Props/>}/>
+        <Route exact path="/reactestudos/classcomponent" element={<ClassComponent/>}/>
+        <Route exact path="/reactestudos/state" element={<State/>}/>
+        <Route exact path="/reactestudos/ciclodevidacomponente" element={<CiclodeVidaComponente/>}/>
+        <Route exact path="/reactestudos/renderizacaoCondicional" element={<RenderizacaoCondicional/>}/>
+        <Route exact path="/reactestudos/listas" element={<Listas/>}/>
+        <Route exact path="/reactestudos/formularios" element={<Formularios/>}/>
+        <Route exact path="/reactestudos/hooks" element={<UseState/>}/>
+        <Route exact path="/reactestudos/requisicoesHttp" element={<RequisicoesHttp/>}/>
+        <Route path="/reactestudos/produtos/:id" element={<Produtos/>}/>
+        <Route path="*" element={<Erro/>}/>
 
       </Routes>
     </BrowserRouter>
