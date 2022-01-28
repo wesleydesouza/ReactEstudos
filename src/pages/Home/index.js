@@ -21,6 +21,7 @@ class Home extends Component{
             <Link to="/reactestudos/formularios">Formularios</Link><br/>
             <Link to="/reactestudos/hooks">Hooks</Link><br/>
             <Link to="/reactestudos/requisicoesHttp">RequisicoesHttp</Link><br/>
+            <Link to="/reactestudos/produtos/:id">produtos</Link>
 
             </>
         );
