@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/reactestudos/static/css/main.49500352.css",
-    "main.js": "/reactestudos/static/js/main.548f0901.js",
+    "main.js": "/reactestudos/static/js/main.ef900e2d.js",
     "index.html": "/reactestudos/index.html",
     "main.49500352.css.map": "/reactestudos/static/css/main.49500352.css.map",
-    "main.548f0901.js.map": "/reactestudos/static/js/main.548f0901.js.map"
+    "main.ef900e2d.js.map": "/reactestudos/static/js/main.ef900e2d.js.map"
   },
   "entrypoints": [
     "static/css/main.49500352.css",
-    "static/js/main.548f0901.js"
+    "static/js/main.ef900e2d.js"
   ]
 }
